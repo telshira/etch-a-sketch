@@ -1,0 +1,149 @@
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: space-between;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: #1b2430;
+  gap: 10vw;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+  height: auto;
+  gap: 15px;
+  border: 1px solid lightblue;
+  padding: 5% 0;
+}
+
+.navBtns{
+  height: 3vh;
+  width: 50%;
+  padding: 1.5em;
+  font-size: 1em;
+  font-weight: bold;
+  transform: scale(1);
+  contain: content;
+  font-size: 1em;
+  transition: all .2s ease-in;
+  border-radius: 15px;
+  background: #55c2da;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #00c1f1;
+  box-shadow:3px 3px #05647c;
+}
+
+.navBtns:hover{
+  transform: scale(1.1);
+  background: #034758;
+}
+
+
+#main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  width: 70vw;
+  border: 1px solid lightblue;
+  background: #eb1d36;
+}
+
+.title{
+  height: 15%;
+  font-size: 3em;
+  font-weight: bolder;
+  color: white;
+  border: 1px solid lightblue;
+  margin: 0;
+  padding: 0;
+}
+
+.grid-container{
+  min-height: 600px;
+  min-width: 600px;
+  border: 1px solid lightblue;
+}
+
+.main-sketch-controls{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 15%;
+  border: 1px solid lightblue;
+}
+
+#gridModal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.35s ease-in;
+}
+
+.modal-content{
+  position: relative;
+  cursor: default;
+  background: #fcf8e8;
+  border-radius: 15px;
+  padding: 1em;
+  height: 100%;
+  width: 100%;
+  max-width: 25vw;
+  max-height: 20vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  contain:content;
+}
+
+label {
+  font-size: 1em;
+  font-weight: bolder;
+}
+
+.close-modal{
+  display: flex;
+  gap: 10px;
+}
+.modal-button{
+  text-align: center;
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 20px;
+  padding: .5vh 1vw;
+  background-color: #00aeff;
+  border: 2px solid #2a8cfd;
+  border-radius: 5px;
+  box-shadow: 4px 4px #2d2d2e;
+  color: white;
+  transform: scale(1);
+  transition: all .35s ease-in;
+}
+
+.modal-button:hover{
+ transform: scale(1.1);
+ background: #055bbe;
+}
+

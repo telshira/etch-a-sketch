@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-A-Sketch</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+  </head>
+
+  <body>
+    <div class="navBar">
+      <button class="navBtns" id="sizeBtn">Grid Size</button>
+      <button class="navBtns eraser" id="eraserBtn">Eraser</button>
+      <button class="navBtns clear"  id="clearBtn">Clear Screen</button>
+      <button class="navBtns color"  id="colorBtn">Pick Color</button>
+      <button class="navBtns picture" id="pictureBtn">Capture Image</button>
+    </div>
+    <div class="main-sketch container" id="main-container">
+      <p class="title">Etch-A-Sketch</p>
+      <div class="grid-container" id="grid"></div>
+      <div class="main-sketch-controls">
+        <div class="control" id="cntrl1"></div>
+        <div class="control" id="cntrl2"></div>
+      </div>
+    </div>
+    <div class="modal" id="gridModal">
+      <form class="modal-content" animate action="action_page.php">
+        <div class="input-fields"> 
+          <label>Choose a grid size (0 to 100):</label>
+          <input type="number" id="gridnumber" min="0" max="100">
+        </div>
+        <div class="close-modal buttons">
+          <button type="button" class="modal-button" id="cancelbtn">Cancel</button>
+          <button type="submit" class="modal-button" id="submitbtn">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+
+</html>
