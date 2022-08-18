@@ -9,11 +9,12 @@ body {
   margin: 0;
   display: grid;
   grid-template-areas:
-    "header header header"
-    "nav main-sketch main-sketch"
-    "footer footer footer";
-  grid-template-columns: 1fr 2fr 2fr;
-  grid-template-rows: 100px 1fr 70px;
+    "header header"
+    "nav main-sketch"
+    "footer footer";
+  grid-template-columns: .5fr 2fr;
+  grid-template-rows: 80px 1fr 80px;
+  justify-content: center;
   height: 100vh;
   overflow: hidden;
   background: #1b2430;
@@ -24,15 +25,16 @@ header{
   color: white;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 footer{
   grid-area: footer;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   color: white;
-  justify-content: center;
+  padding: 0;
 }
 
 .navBar {
@@ -49,6 +51,7 @@ footer{
 .navBtns{
   height: 3vh;
   width: 50%;
+  min-width: 100px;
   padding: 1.5em;
   font-size: 1em;
   font-weight: bold;
@@ -64,6 +67,7 @@ footer{
   align-items: center;
   border: 2px solid #00c1f1;
   box-shadow:0px 10px 50px 0px #05647c;
+  text-shadow: 1px 1px #2d2d2e;
 }
 
 .navBtns:hover{
@@ -75,34 +79,42 @@ footer{
 
 #main-container{
   grid-area: main-sketch;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid lightblue;
-  background: #eb1d36;
+  display: grid;
+  grid-template-columns: 100px 1fr 100px;
+  grid-template-rows: 100px 1fr 100px;
+  background: radial-gradient(rgba(240, 15, 15, 0.8) , rgba(129, 0, 0, 70%)),
+              linear-gradient(to right, #eb1d36, darkred); 
   border-radius: 100px;
-  height: auto;
-  max-width: 800px;
-  justify-self: stretch;
+  justify-self: center;
+  align-self: start;
+  border: 2px solid #c2031a;
+  box-shadow:10px 10px 4px rgba(0, 0, 0, 0.5), 
+  inset 1px 2px 0px rgba(141, 2, 2, 0.5);
+  grid-auto-rows: min-content;
 }
 
 .title{
-  display: grid;
+  grid-column: 1 / 4;
   font-size: 3em;
   font-weight: bolder;
   color: white;
   border: 1px solid lightblue;
   margin: 0;
   padding: 10px;
+  justify-self: center;
+  align-self: center;
 }
 
 .grid-container{
-  min-height: 600px;
-  min-width: 600px;
+  grid-column: 2 / 3;
+  width: 500px;
+  height: 500px;
   display: grid;
   border: 1px solid lightblue;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
+  background: lightgray;
+  opacity: 75%;
+  border: 1px solid rgb(94, 91, 91);
+  box-shadow: inset 1px 2px 0px rgba(94, 91, 91, 0.5);
 }
 
 .grid-cell{
@@ -111,8 +123,10 @@ footer{
 }
 
 .main-sketch-controls{
+  grid-column: 1 / 4;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "control control";
+  grid-template-columns: 50% 50%;
   grid-template-rows: auto;
   width: 100%;
   border: 1px solid lightblue;
@@ -120,12 +134,21 @@ footer{
 }
 
 .control{
-  width: 70px;
-  height: 70px;
+  grid: control;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: white;
+  background: radial-gradient(circle, white, lightgray, gray);
   align-self: center;
   justify-self: center;
+  border: 1px solid #e2e1df;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4),
+              0 2px 4px rgba(0, 0, 0, 0.4),
+              0 4px 8px rgba(0, 0, 0, 0.4),
+              0 8px 16px rgba(0, 0, 0, 0.4),
+              0 16px 32px rgba(0, 0, 0, 0.4),
+              0 32px 64px rgba(0, 0, 0, 0.4),
+              inset 1px 2px 0px rgba(255, 255, 255, 0.8);
 }
 
 #gridModal {
