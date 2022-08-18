@@ -88,8 +88,9 @@ footer{
   justify-self: center;
   align-self: start;
   border: 2px solid #c2031a;
-  box-shadow:10px 10px 4px rgba(0, 0, 0, 0.5), 
-  inset 1px 2px 0px rgba(141, 2, 2, 0.5);
+  box-shadow: 10px 10px rgb(117, 2, 2),
+              20px 20px 4px rgba(20, 20, 20, 0.5),
+              inset 1px 2px 0px rgba(141, 2, 2, 0.5);
   grid-auto-rows: min-content;
 }
 
@@ -118,8 +119,8 @@ footer{
 }
 
 .grid-cell{
-  background: white;
-  border: 1px solid lightblue;
+  background: lightgray;
+  border: 1px dotted rgb(51, 50, 50);
 }
 
 .main-sketch-controls{
