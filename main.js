@@ -73,3 +73,32 @@ function createGrid(e){
     }
   }
 }
+
+const pencil = `url('pencil.png)  5 25, crosshair`;
+const eraser = `url('eraser.png') 13 25, crosshair`;
+
+function color(e){
+  if (e.target.classList.contains("grid-cell")) {
+
+    if (document.body.style.cursor) {
+      console.log(document.body.style.cursor);
+      e.target.style.background = "lightgray";
+    } else {
+     e.target.style.background = "black";
+    }
+  }
+  console.log(e.target);
+}
+
+function toEraser(e){
+  document.body.style.cursor = eraser;
+}
+
+function clrScreen() {
+  const screenCells = document.querySelectorAll('div.grid-cell');
+  screenCells.forEach(cell => cell.style.background = "lightgray");
+}
+
+clearBtn.addEventListener('click', clrScreen);
+grid.addEventListener("click", color);
+eraserBtn.addEventListener('click', toEraser);
