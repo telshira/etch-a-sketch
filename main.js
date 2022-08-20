@@ -11,7 +11,7 @@ const gridInput = document.getElementById('gridInput');
 const upDown = document.getElementById('cntrl1');
 const leftRight = document.getElementById('cntrl2');
 
-const gridSize = {dimension: 0};
+const gridProp= {dimension: 0, color: '#000000'};
 
 //load get size modal
 function openDialog(e) {
@@ -34,7 +34,7 @@ function getSize(){
     gridInput.value = "";
     alert("Please type in a number between 1 and 100");
   } else {
-  gridSize.dimension = gridInput.value;
+  gridProp.dimension = gridInput.value;
   gridInput.value = "";
   modal.style.visibility = "hidden";
   modal.style.opacity = '0';
@@ -54,17 +54,17 @@ function createGrid(e){
     grid.removeChild(grid.firstChild);
   }
   getSize();
-  console.log(gridSize.dimension);
-  grid.style.gridTemplateColumns = `repeat(${gridSize.dimension}, 1fr`;
-  grid.style.gridTemplateRows = `repeat(${gridSize.dimension}, 1fr)`;
+  console.log(gridProp.dimension);
+  grid.style.gridTemplateColumns = `repeat(${gridProp.dimension}, 1fr`;
+  grid.style.gridTemplateRows = `repeat(${gridProp.dimension}, 1fr)`;
   grid.style.opacity = 1;
   grid.style.boxShadow = "none";
-  for( let i = 0; i < gridSize.dimension; i ++) {
+  for( let i = 0; i < gridProp.dimension; i ++) {
     const gridCell = document.createElement('div');
     gridCell.className = "grid-cell";
     gridCell.setAttribute('style', 'height: 100%; width: 100%;  opacity: 1');
     grid.appendChild(gridCell);
-    for (let j = 1; j < gridSize.dimension; j++)
+    for (let j = 1; j < gridProp.dimension; j++)
     {
     const gridCell = document.createElement('div');
     gridCell.className = "grid-cell";
@@ -74,7 +74,6 @@ function createGrid(e){
   }
 }
 
-const pencil = `url('pencil.png)  5 25, crosshair`;
 const eraser = `url('eraser.png') 13 25, crosshair`;
 
 function color(e){
@@ -84,10 +83,9 @@ function color(e){
       console.log(document.body.style.cursor);
       e.target.style.background = "lightgray";
     } else {
-     e.target.style.background = "black";
+     e.target.style.background = `${gridProp.color}`;
     }
   }
-  console.log(e.target);
 }
 
 function toEraser(e){
@@ -100,5 +98,37 @@ function clrScreen() {
 }
 
 clearBtn.addEventListener('click', clrScreen);
-grid.addEventListener("click", color);
+grid.addEventListener("mouseup", color);
 eraserBtn.addEventListener('click', toEraser);
+
+const cancelBtn2 = document.getElementById('cancelBtn2');
+const submitBtn2 = document.getElementById('submitBtn2');
+const colorForm = document.getElementById('colorform');
+const colorModal = document.getElementById('colorModal');
+const colorInput = document.getElementById('colorpicker');
+
+function openPicker(e){
+  colorModal.style.visibility = "visible";
+  colorModal.style.opacity = "1";
+}
+
+function cancelPick(e) {
+  e.preventDefault();
+  if(e.target.id === "cancelBtn2"){  
+    colorInput.value = gridProp.color; 
+    colorModal.style.visibility = "hidden";
+    colorModal.style.opacity = "0";
+  }
+}
+
+function getColor(e){
+  e.preventDefault();
+  gridProp.color = colorInput.value;
+  colorModal.style.visibility = "hidden";
+  colorModal.style.opacity = "0";
+  document.body.style.cursor = null;
+}
+
+colorBtn.addEventListener('click', openPicker);
+cancelBtn2.addEventListener('click', cancelPick);
+colorForm.addEventListener('submit', getColor);

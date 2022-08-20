@@ -18,7 +18,7 @@ body {
   height: 100vh;
   overflow: hidden;
   background: #1b2430;
-  cursor: crosshair;
+  cursor: url('pencil.png') 0 32, crosshair;
 }
 
 header{
@@ -176,10 +176,8 @@ footer{
   background: #fcf8e8;
   border-radius: 15px;
   padding: 1em;
-  height: 100%;
-  width: 100%;
-  max-width: 25vw;
-  max-height: 20vh;
+  height: 25vh;
+  width: 30vw;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -217,3 +215,40 @@ label {
  background: #055bbe;
 }
 
+#colorModal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.35s ease-in;
+}
+
+
+#colorpicker{
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border:none;
+}
+
+#gridInput{
+  height: 30px;
+  width: 60px;
+  text-align: right;
+}
+
+.input-fields{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
