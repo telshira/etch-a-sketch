@@ -74,22 +74,27 @@ function createGrid(e){
   }
 }
 
-const eraser = `url('eraser.png') 13 25, crosshair`;
+const eraser = `url('eraser.png') 10 30, crosshair`;
+
+let isEraser = false;
 
 function color(e){
-  if (e.target.classList.contains("grid-cell")) {
-
-    if (document.body.style.cursor) {
-      console.log(document.body.style.cursor);
-      e.target.style.background = "lightgray";
-    } else {
-     e.target.style.background = `${gridProp.color}`;
+  if (!isEraser) {
+    if (e.target.classList.contains("grid-cell")) {
+      e.target.style.background = `${gridProp.color}`;
     }
+  }  
+}
+
+function erase(e){
+  if (e.target.classList.contains("grid-cell")) {
+     e.target.style.background = "lightgray";
   }
 }
 
-function toEraser(e){
+function toEraser(){
   document.body.style.cursor = eraser;
+  isEraser = true;
 }
 
 function clrScreen() {
@@ -98,7 +103,28 @@ function clrScreen() {
 }
 
 clearBtn.addEventListener('click', clrScreen);
-grid.addEventListener("mouseup", color);
+grid.addEventListener("mousedown", (e) => {
+  e.preventDefault();
+  if(isEraser) {
+    grid.addEventListener("mouseover", erase);
+  } else {
+    grid.addEventListener("mouseover", color);
+  }
+});
+grid.addEventListener("mouseup", () => {
+  if(isEraser) {
+    grid.removeEventListener("mouseover", erase);
+  } else {
+    grid.removeEventListener("mouseover", color);
+  }
+});
+grid.addEventListener("click", (e) =>{
+  if(isEraser){
+    erase(e);
+  } else {
+    color(e);
+  }
+})
 eraserBtn.addEventListener('click', toEraser);
 
 const cancelBtn2 = document.getElementById('cancelBtn2');
@@ -127,6 +153,7 @@ function getColor(e){
   colorModal.style.visibility = "hidden";
   colorModal.style.opacity = "0";
   document.body.style.cursor = null;
+  isEraser = false;
 }
 
 colorBtn.addEventListener('click', openPicker);

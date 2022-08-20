@@ -18,7 +18,7 @@ body {
   height: 100vh;
   overflow: hidden;
   background: #1b2430;
-  cursor: url('pencil.png') 0 32, crosshair;
+  cursor: url('pencil.png') 1 29, crosshair;
 }
 
 header{

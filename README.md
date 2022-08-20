@@ -1,8 +1,10 @@
 Etch-a-Sketch created using CSS/Html/Javascript for The Odin Project.
 
+[Github Pages](https://telshira.github.io/etch-a-sketch/)
+
 Images for cursor arts are from:
 Pencil Image:
-https://www.citypng.com/photo/21085/black-outline-pencil-with-eraser-icon
+https://www.freeiconspng.com/img/662
 
 Eraser Image:
-https://flyclipart.com/eraser-eraser-tool-pencil-eraser-icon-with-png-and-vector-format-pencil-and-eraser-clipart-128950
+https://www.freeiconspng.com/downloadimg/23391
