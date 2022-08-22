@@ -6,26 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://www.dafontfree.net/embed/cm9uZG8tcmVndWxhciZkYXRhLzM0L3IvMTQwOTc1L3JvbmRvLnR0Zg" rel="stylesheet" type="text/css"/>
     <script src="main.js" defer></script>
   </head>
 
   <body>
     <header class="welcomeMsg">
-      <p>Ready to play?</p>
+      <p>Choose a grid size to play!</p>
     </header>
-    <div class="navBar">
-      <button class="navBtns" id="sizeBtn">Grid Size</button>
-      <button class="navBtns eraser" id="eraserBtn">Eraser</button>
-      <button class="navBtns clear"  id="clearBtn">Clear Screen</button>
-      <button class="navBtns color"  id="colorBtn">Pick Color</button>
-      <button class="navBtns picture" id="pictureBtn">Capture Image</button>
-    </div>
-    <div class="main-sketch container" id="main-container">
-      <p class="title">Etch-A-Sketch</p>
-      <div class="grid-container" id="grid"></div>
-      <div class="main-sketch-controls">
-        <div class="control" id="cntrl1"></div>
-        <div class="control" id="cntrl2"></div>
+    <div class="main-content">
+      <div class="navBar">
+        <button class="navBtns" id="sizeBtn">Grid Size</button>
+        <button class="navBtns eraser" id="eraserBtn">Eraser</button>
+        <button class="navBtns clear"  id="clearBtn">Clear Screen</button>
+        <button class="navBtns color"  id="colorBtn">Pick Color</button>
+        <button class="navBtns picture" id="pictureBtn">Capture Image</button>
+      </div>
+      <div class="main-sketch container" id="main-container">
+        <p class="title">Etch-A-Sketch</p>
+        <div class="grid-container" id="grid"></div>
+        <div class="main-sketch-controls">
+          <div class="control" id="cntrl1"></div>
+          <div class="control" id="cntrl2"></div>
+        </div>
       </div>
     </div>
     <div class="modal" id="gridModal">
@@ -52,7 +55,7 @@
         </div>
       </div>
     </div>
-    <footer>A game made by Thu Nguyen @2022</footer>
+    <footer>Thu Nguyen @2022</footer>
   </body>
 
 </html>
