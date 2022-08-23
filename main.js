@@ -6,7 +6,7 @@ const sizeBtn = document.getElementById('sizeBtn');
 const eraserBtn = document.getElementById('eraserBtn');
 const clearBtn = document.getElementById('clearBtn');
 const colorBtn = document.getElementById('colorBtn');
-const pictureBtn = document.getElementById('pictureBtn');
+const randomBtn = document.getElementById('randomBtn');
 const gridInput = document.getElementById('gridInput');
 const upDown = document.getElementById('cntrl1');
 const leftRight = document.getElementById('cntrl2');
@@ -77,6 +77,7 @@ function createGrid(e){
 const eraser = `url('eraser.png') 10 30, crosshair`;
 
 let isEraser = false;
+let isRandom = false;
 
 function color(e){
   if (!isEraser) {
@@ -107,6 +108,8 @@ grid.addEventListener("mousedown", (e) => {
   e.preventDefault();
   if(isEraser) {
     grid.addEventListener("mouseover", erase);
+  } else if (isRandom) {
+    grid.addEventListener("mouseover", randomColor);
   } else {
     grid.addEventListener("mouseover", color);
   }
@@ -114,6 +117,8 @@ grid.addEventListener("mousedown", (e) => {
 grid.addEventListener("mouseup", () => {
   if(isEraser) {
     grid.removeEventListener("mouseover", erase);
+  } else if (isRandom) {
+    grid.removeEventListener("mouseover", randomColor);
   } else {
     grid.removeEventListener("mouseover", color);
   }
@@ -121,6 +126,8 @@ grid.addEventListener("mouseup", () => {
 grid.addEventListener("click", (e) =>{
   if(isEraser){
     erase(e);
+  } else if (isRandom) {
+    randomColor(e);
   } else {
     color(e);
   }
@@ -133,14 +140,16 @@ const colorForm = document.getElementById('colorform');
 const colorModal = document.getElementById('colorModal');
 const colorInput = document.getElementById('colorpicker');
 
-function openPicker(e){
+function openPicker(){
   colorModal.style.visibility = "visible";
   colorModal.style.opacity = "1";
 }
 
 function cancelPick(e) {
   e.preventDefault();
-  if(e.target.id === "cancelBtn2"){  
+  if(e.target.id === "cancelBtn2"){
+    isEraser = false;
+    document.body.style.cursor = null;
     colorInput.value = gridProp.color; 
     colorModal.style.visibility = "hidden";
     colorModal.style.opacity = "0";
@@ -149,6 +158,7 @@ function cancelPick(e) {
 
 function getColor(e){
   e.preventDefault();
+  isRandom = false;
   gridProp.color = colorInput.value;
   colorModal.style.visibility = "hidden";
   colorModal.style.opacity = "0";
@@ -156,6 +166,22 @@ function getColor(e){
   isEraser = false;
 }
 
+function randomColor(e){
+  if (!isEraser) {
+    if (e.target.classList.contains("grid-cell")) {
+      let r = Math.floor(Math.random()*256);
+      let g = Math.floor(Math.random()*256);
+      let b = Math.floor(Math.random()*256);
+      e.target.style.background = `rgb(${r}, ${g}, ${b})`;
+    }
+  }  
+}
+
 colorBtn.addEventListener('click', openPicker);
 cancelBtn2.addEventListener('click', cancelPick);
 colorForm.addEventListener('submit', getColor);
+randomBtn.addEventListener('click', () => { 
+  isRandom = true;
+  document.body.style.cursor = null;
+  isEraser = false;
+});
