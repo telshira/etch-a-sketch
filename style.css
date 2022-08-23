@@ -136,7 +136,6 @@ a {
   width: 500px;
   height: 500px;
   display: grid;
-  border: 1px solid lightblue;
   background: lightgray;
   opacity: 75%;
   border: 1px solid rgb(94, 91, 91);
@@ -145,7 +144,7 @@ a {
 
 .grid-cell{
   background: lightgray;
-  border: 1px dotted rgb(51, 50, 50);
+  border: 1px dotted rgb(168, 162, 162);
 }
 
 .main-sketch-controls{
